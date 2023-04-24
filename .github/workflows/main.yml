@@ -11,12 +11,14 @@ on:
 jobs:
   build-job:
     runs-on: ubuntu-latest
+    container: carlos1433/py-flask:latest
     steps:
       - uses: actions/checkout@v3
       - run: python3 -V
 
   test-job:
     runs-on: ubuntu-latest
+    container: carlos1433/py-flask:latest
     steps:
       - uses: actions/checkout@v3
       - run: python3 myapp.py
@@ -26,6 +28,7 @@ jobs:
 
   deploy-job:
     runs-on: ubuntu-latest
+    container: carlos1433/py-flask:latest
     steps:
       - uses: actions/checkout@v3
       - run: echo "Finalizado!"
