@@ -15,13 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: python3 -V
+      - uses: actions/checkout@v3
+      - run: echo 'authkey:2NIJtBHqp34HAaBWAGJwFJartnZ_4YeWtVAV5RkdQNN9jYVuG' >> ~/.config/ngrok/ngrok.yml
 
   test-job:
     runs-on: ubuntu-latest
     container: carlos1433/py-flask:latest
     steps:
       - uses: actions/checkout@v3
-     # - run: python3 myapp.py
+      #- run: python3 myapp.py
+      - run: ngrok http 8080
       - uses: AppThreat/sast-scan-action@master
         with:
           type: "python"
