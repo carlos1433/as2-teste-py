@@ -21,7 +21,7 @@ jobs:
     container: carlos1433/py-flask:latest
     steps:
       - uses: actions/checkout@v3
-      - run: python3 myapp.py
+     # - run: python3 myapp.py
       - uses: AppThreat/sast-scan-action@master
         with:
           type: "python"
